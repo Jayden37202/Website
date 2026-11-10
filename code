@@ -1,0 +1,111 @@
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHbno-rYL-jrqxxdA3dWi_TN42omX20V6-qorMotblw&s" alt="Description of the image" width= 1000>
+<p>This uses a <mark>Daddy Yankee</mark> youtube collab which is somebody who i dont know but he might be a person that is alive but is also a person that is daddy yankee but also might be nicholas but also might be a collab but also might be a watch history.</p>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .floating-img {
+      width: 250px;
+      animation: float 2s ease-in-out infinite, pulse 5s infinite alternate;
+      border-radius: 50%;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+      }
+      100% {
+        box-shadow: 0 0 30px rgba(0, 240, 255, 0.9);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://yt3.googleusercontent.com/ytc/AIdro_l-6FQr2F5viYuELhfXHiUU46MqDNZkXPwUqbdZagQMt9A=s900-c-k-c0x00ffffff-no-rj" alt="Floating icon" class="floating-img">
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .mytestbtn {
+      background-color: #ff0000; 
+      color: white;             
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;       
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .mytestbtn:hover {
+      background-color: #cc0000; 
+    }
+  </style>
+</head>
+<body>
+
+  <a href="https://www.youtube.com" target="_blank">
+    <button class="mytestbtn">YOUTUBE WEBSITE</button>
+  </a>
+
+</body>
+</html>
+<p>This is a bouncing youtube logo <mark></mark></p>
+
+<h1 style="background-color:DodgerBlue;">Please subscribe to my youtube challenge</h1>
+<p style="background-color:Tomato;">Daddy Yankee</p>
+
+<p>If you couldnt tell my idol is daddy yankee</p>
+<p>I watch youtube everyday to fulfill my life</p>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIm8nHweTzVhq_KS61uMGfn6Q-b7Gsdt1ZJKxNWoP9Qg&s" alt="Description of the image" width= 300>
+<p style="font-size: 32px;">This is Kai Wang from the future</p>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<a href="page2.html" style="font-size: 24px; padding: 10px;">Go to Page 2</a>
+</body>
+</html>
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Verity</td>
+    <td>Jay</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Kai cenat</td>
+    <td>IshowSpeed</td>
+    <td>Mexico</td>
+  </tr>
+</table>
+
