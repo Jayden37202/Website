@@ -1,18 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Congee Queen </title>
+  <style>
+    body {
+      margin: 0;
+      background: #D17300;
+      color: #f6f0e8;
+      font-family: Arial, sans-serif;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      background: #30251e;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      background: #604633;
+      color: white;
+      font: inherit;
+      text-decoration: none;
+    }
+
+    .tab-btn:hover, .tab-btn.active { background: #967044; }
+
+    main {
+      max-width: 850px;
+      margin: 24px auto;
+      padding: 24px;
+    }
+
+    h1, .dish-card h3, #soya-chicken-title { color: #f2eee9 !important; }
+    .dish-card h3 { color: #4b3828 !important; }
+
+    .dish-img {
+      width: 250px;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .featured-dish {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      margin: 24px 0;
+      padding: 18px;
+    }
+
+    .chicken-illustration {
+      width: 250px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .dish-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .dish-card {
+      padding: 16px;
+    }
+
+    .dish-card h3 {
+      margin-top: 0;
+      color: #3949ab;
+    }
+
+    .dish-card img {
+      display: block;
+      width: 100%;
+      height: 140px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .youtube-button {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: #604633;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .youtube-button:hover {
+      background: #967044;
+    }
+  </style>
+</head>
 <body>
-    <h1>Welcome to Page 2 </h1>
-    <a href="javascript:history.back()">Go Back</a>
-</body>
-</html>
+  <nav class="tab-buttons" aria-label="Page navigation">
+    <a class="tab-btn" href="index.html">Home Page</a>
+    <a class="tab-btn active" href="page2.html" aria-current="page">Menu</a>
+    <a class="tab-btn" href="page3.html">About Me</a>
+  </nav>
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHbno-rYL-jrqxxdA3dWi_TN42omX20V6-qorMotblw&s" alt="Description of the image" width= 500>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHbno-rYL-jrqxxdA3dWi_TN42omX20V6-qorMotblw&s" alt="Description of the image" width= 500><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHbno-rYL-jrqxxdA3dWi_TN42omX20V6-qorMotblw&s" alt="Description of the image" width= 500><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHbno-rYL-jrqxxdA3dWi_TN42omX20V6-qorMotblw&s" alt="Description of the image" width= 500><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHbno-rYL-jrqxxdA3dWi_TN42omX20V6-qorMotblw&s" alt="Description of the image" width= 500>
+  <main>
+    <h1>A Taste of Congee Queen</h1>
+    <p>Congee Queen serves Cantonese style  food. Here are a few dishes to look for on the menu.</p>
 
-<!DOCTYPE html>
-<html>
-<body>
+    <img class="dish-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb8Ypt-Bx0jVR0OIjs3uRamowlKKsy_FDfeevDT96MvQ&amp;s=10" alt="Wonton dish from Congee Queen">
+    <p><strong>Wonton:</strong> A tasty dumpling dish.</p>
 
-<a href="page3.html" style="font-size: 24px; padding: 10px;">Go to Page 3</a>
+    <section class="featured-dish" aria-labelledby="soya-chicken-title">
+      <img class="chicken-illustration" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbEW5r5SqK-88ll7k32_9l0BpxaChHr1QDLV9U_CMWIA&amp;s=10" alt="Soya sauce chicken served with vegetables">
+      <div>
+        <h2 id="soya-chicken-title" style="color: #3949ab;">Soya Sauce Chicken</h2>
+        <p>Tender Cantonese style chicken seasoned with savory soya sauce. A delicious dish to enjoy with rice.</p>
+      </div>
+    </section>
+
+    <section class="dish-list" aria-label="Congee Queen dish ideas">
+      <article class="dish-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrSiJmQGO1XLz3Hxqgfju11X3KfYCjrqa_sZ511edQEg&amp;s=10" alt="Congee rice porridge">
+        <h3>Congee</h3>
+        <p>A warm rice porridge that can be enjoyed plain or with savory toppings.</p>
+      </article>
+      <article class="dish-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb8Ypt-Bx0jVR0OIjs3uRamowlKKsy_FDfeevDT96MvQ&amp;s=10" alt="Wonton noodles">
+        <h3>Wonton Noodles</h3>
+        <p>A comforting combination of noodles and wontons in a flavorful broth.</p>
+      </article>
+      <article class="dish-card">
+        <img src="data:image/jpeg;base64,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" alt="Fried rice dish">
+        <h3>Fried Rice</h3>
+        <p>Hearty Cantonese-style fried rice, a satisfying dish with savory flavors.</p>
+      </article>
+    </section>
+
+    <a class="youtube-button" href="https://www.congeequeen.com/" target="_blank" rel="noopener noreferrer">Visit Congee Queen</a>
+  </main>
 </body>
 </html>
