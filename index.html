@@ -1,111 +1,100 @@
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUHbno-rYL-jrqxxdA3dWi_TN42omX20V6-qorMotblw&s" alt="Description of the image" width= 1000>
-<p>This uses a <mark>Daddy Yankee</mark> youtube collab which is somebody who i dont know but he might be a person that is alive but is also a person that is daddy yankee but also might be nicholas but also might be a collab but also might be a watch history.</p>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Congee Queen | Home</title>
   <style>
-    .floating-img {
-      width: 250px;
-      animation: float 2s ease-in-out infinite, pulse 5s infinite alternate;
-      border-radius: 50%;
-    }
+    * { box-sizing: border-box; }
 
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-      }
-      100% {
-        box-shadow: 0 0 30px rgba(0, 240, 255, 0.9);
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <img src="https://yt3.googleusercontent.com/ytc/AIdro_l-6FQr2F5viYuELhfXHiUU46MqDNZkXPwUqbdZagQMt9A=s900-c-k-c0x00ffffff-no-rj" alt="Floating icon" class="floating-img">
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    .mytestbtn {
-      background-color: #ff0000; 
-      color: white;             
+    body {
+      margin: 0;
+      background: #956f4b;
+      color: #f6f0e8;
       font-family: Arial, sans-serif;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;       
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    .mytestbtn:hover {
-      background-color: #cc0000; 
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      background: #30251e;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      background: #604633;
+      color: white;
+      font: inherit;
+      text-decoration: none;
+    }
+
+    .tab-btn:hover, .tab-btn.active { background: #967044; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 30px 30px;
+      background: #422e20;
+    }
+
+    .feature-card {
+      overflow: hidden;
+      border: 1px solid #c1a77e;
+      border-radius: 8px;
+      background: #a58a6d;
+      box-shadow: 0 3px 9px #21170f70;
+    }
+
+    .feature-card h2 {
+      min-height: 60px;
+      margin: 0;
+      padding: 17px 12px;
+      background: #4b3828;
+      color: #f2eee9;
+      font-size: clamp(17px, 2vw, 23px);
+    }
+
+    .feature-card img {
+      display: block;
+      width: 100%;
+      height: 265px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 700px) {
+      .features { grid-template-columns: 1fr; max-width: 460px; padding: 18px; }
+      .feature-card img { height: 230px; }
     }
   </style>
 </head>
 <body>
+  <nav class="tab-buttons" aria-label="Page navigation">
+    <a class="tab-btn active" href="index.html" aria-current="page">Home Page</a>
+    <a class="tab-btn" href="page2.html">Menu</a>
+    <a class="tab-btn" href="page3.html">About Me</a>
+  </nav>
 
-  <a href="https://www.youtube.com" target="_blank">
-    <button class="mytestbtn">YOUTUBE WEBSITE</button>
-  </a>
-
+  <main>
+    <section class="features" aria-label="Featured dishes">
+      <article class="feature-card">
+        <h2>Hot Picks</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb8Ypt-Bx0jVR0OIjs3uRamowlKKsy_FDfeevDT96MvQ&amp;s=10" alt="Wonton noodles from Congee Queen">
+      </article>
+      <article class="feature-card">
+        <h2>Fish Soup Noodle</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrSiJmQGO1XLz3Hxqgfju11X3KfYCjrqa_sZ511edQEg&amp;s=10" alt="A warm Congee Queen dish">
+      </article>
+      <article class="feature-card">
+        <h2>Party Tray</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbEW5r5SqK-88ll7k32_9l0BpxaChHr1QDLV9U_CMWIA&amp;s=10" alt="Soya sauce chicken for sharing">
+      </article>
+    </section>
+  </main>
 </body>
 </html>
-<p>This is a bouncing youtube logo <mark></mark></p>
-
-<h1 style="background-color:DodgerBlue;">Please subscribe to my youtube challenge</h1>
-<p style="background-color:Tomato;">Daddy Yankee</p>
-
-<p>If you couldnt tell my idol is daddy yankee</p>
-<p>I watch youtube everyday to fulfill my life</p>
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIm8nHweTzVhq_KS61uMGfn6Q-b7Gsdt1ZJKxNWoP9Qg&s" alt="Description of the image" width= 300>
-<p style="font-size: 32px;">This is Kai Wang from the future</p>
-
-
-<!DOCTYPE html>
-<html>
-<body>
-
-<a href="page2.html" style="font-size: 24px; padding: 10px;">Go to Page 2</a>
-</body>
-</html>
-
-<table>
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Verity</td>
-    <td>Jay</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Kai cenat</td>
-    <td>IshowSpeed</td>
-    <td>Mexico</td>
-  </tr>
-</table>
-
