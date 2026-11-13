@@ -33,6 +33,44 @@
 
     .tab-btn:hover, .tab-btn.active { background: #967044; }
 
+    .video-section {
+      width: 100%;
+      margin: 0;
+      padding: 24px;
+      text-align: center;
+      background: #422e20;
+      border-bottom: 1px solid #c1a77e;
+    }
+
+    .video-section h1 { margin-top: 0; }
+
+    .video-player {
+      display: block;
+      width: 100%;
+      height: min(72vh, 760px);
+      min-height: 400px;
+      margin: 18px 0;
+      background: #1b1511;
+      object-fit: cover;
+    }
+
+    .video-picker {
+      max-width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      background: #604633;
+      color: #f6f0e8;
+      font: inherit;
+    }
+
+    .scroll-link { color: #f2d19b; }
+
+    .recommendations-title {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      padding: 0 30px;
+    }
+
     .features {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -68,6 +106,9 @@
     }
 
     @media (max-width: 700px) {
+      .video-section { margin: 0; padding: 18px; }
+      .video-player { height: 60vh; min-height: 280px; }
+      .recommendations-title { padding: 0 18px; }
       .features { grid-template-columns: 1fr; max-width: 460px; padding: 18px; }
       .feature-card img { height: 230px; }
     }
@@ -81,20 +122,34 @@
   </nav>
 
   <main>
+    <section class="video-section" aria-labelledby="home-video-title">
+      <h1 id="home-video-title">Congee Queen Video</h1>
+      <iframe
+        class="video-player"
+        src="https://www.youtube.com/embed/I8ppgtUAYbQ?autoplay=1&amp;mute=1&amp;playsinline=1"
+        title="Congee Queen video"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <p><a class="scroll-link" href="#top-picks">Scroll down to see our top 3 favourites and recommendations</a></p>
+    </section>
+
+    <h1 class="recommendations-title" id="top-picks">Top 3 Favourites &amp; Recommendations</h1>
     <section class="features" aria-label="Featured dishes">
       <article class="feature-card">
         <h2>Hot Picks</h2>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb8Ypt-Bx0jVR0OIjs3uRamowlKKsy_FDfeevDT96MvQ&amp;s=10" alt="Wonton noodles from Congee Queen">
+        <a href="page2.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb8Ypt-Bx0jVR0OIjs3uRamowlKKsy_FDfeevDT96MvQ&amp;s=10" alt="Wonton noodles from Congee Queen"></a>
       </article>
       <article class="feature-card">
         <h2>Fish Soup Noodle</h2>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrSiJmQGO1XLz3Hxqgfju11X3KfYCjrqa_sZ511edQEg&amp;s=10" alt="A warm Congee Queen dish">
+        <a href="page2.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrSiJmQGO1XLz3Hxqgfju11X3KfYCjrqa_sZ511edQEg&amp;s=10" alt="A warm Congee Queen dish"></a>
       </article>
       <article class="feature-card">
         <h2>Party Tray</h2>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbEW5r5SqK-88ll7k32_9l0BpxaChHr1QDLV9U_CMWIA&amp;s=10" alt="Soya sauce chicken for sharing">
+        <a href="page2.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbEW5r5SqK-88ll7k32_9l0BpxaChHr1QDLV9U_CMWIA&amp;s=10" alt="Soya sauce chicken for sharing"></a>
       </article>
     </section>
   </main>
+
 </body>
 </html>
