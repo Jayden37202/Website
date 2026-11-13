@@ -65,6 +65,51 @@
 
     .scroll-link { color: #f2d19b; }
 
+    .review-section {
+      max-width: 850px;
+      margin: 28px auto;
+      padding: 24px;
+      border: 1px solid #c1a77e;
+      border-radius: 10px;
+      background: #604633;
+    }
+
+    .review-section h2 { margin-top: 0; }
+
+    .review-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .review-form label { font-weight: bold; }
+
+    .review-form input, .review-form select, .review-form textarea,
+    .review-form button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #c1a77e;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    .review-form textarea { min-height: 90px; resize: vertical; }
+
+    .review-form button {
+      background: #967044;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .review-card {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 6px;
+      background: #422e20;
+    }
+
+    .review-stars { color: #ffd166; }
+
     .recommendations-title {
       max-width: 1200px;
       margin: 28px auto 0;
@@ -123,7 +168,7 @@
 
   <main>
     <section class="video-section" aria-labelledby="home-video-title">
-      <h1 id="home-video-title">Congee Queen Video</h1>
+      <h1 id="home-video-title">Congee Queen Review Video</h1>
       <iframe
         class="video-player"
         src="https://www.youtube.com/embed/I8ppgtUAYbQ?autoplay=1&amp;mute=1&amp;playsinline=1"
@@ -132,6 +177,29 @@
         allowfullscreen>
       </iframe>
       <p><a class="scroll-link" href="#top-picks">Scroll down to see our top 3 favourites and recommendations</a></p>
+    </section>
+
+    <section class="review-section" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">Leave a Review</h2>
+      <form class="review-form" id="review-form">
+        <label for="reviewer-name">Your name</label>
+        <input id="reviewer-name" name="name" type="text" required maxlength="60" placeholder="Enter your name">
+
+        <label for="review-rating">Your star rating</label>
+        <select id="review-rating" name="rating" required>
+          <option value="5">5 stars</option>
+          <option value="4">4 stars</option>
+          <option value="3">3 stars</option>
+          <option value="2">2 stars</option>
+          <option value="1">1 star</option>
+        </select>
+
+        <label for="review-text">Your review</label>
+        <textarea id="review-text" name="review" required maxlength="500" placeholder="Share what you think"></textarea>
+
+        <button type="submit">Submit review</button>
+      </form>
+      <div id="reviews-list" aria-live="polite"></div>
     </section>
 
     <h1 class="recommendations-title" id="top-picks">Top 3 Favourites &amp; Recommendations</h1>
@@ -151,5 +219,32 @@
     </section>
   </main>
 
+  <script>
+    const reviewForm = document.getElementById('review-form');
+    const reviewsList = document.getElementById('reviews-list');
+
+    reviewForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('reviewer-name').value.trim();
+      const rating = Number(document.getElementById('review-rating').value);
+      const review = document.getElementById('review-text').value.trim();
+      const card = document.createElement('article');
+      card.className = 'review-card';
+
+      const heading = document.createElement('h3');
+      heading.textContent = name;
+      const score = document.createElement('p');
+      score.className = 'review-stars';
+      score.setAttribute('aria-label', rating + ' out of 5 stars');
+      score.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating) + ' (' + rating + '/5)';
+      const comment = document.createElement('p');
+      comment.textContent = review;
+
+      card.append(heading, score, comment);
+      reviewsList.prepend(card);
+      reviewForm.reset();
+    });
+  </script>
 </body>
 </html>
