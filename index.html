@@ -76,6 +76,20 @@
 
     .review-section h2 { margin-top: 0; }
 
+    .admin-controls { margin: 0 0 16px; }
+
+    .admin-controls button, .delete-review {
+      padding: 8px 12px;
+      border: 1px solid #c1a77e;
+      border-radius: 6px;
+      background: #967044;
+      color: white;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .delete-review { margin-top: 8px; }
+
     .review-form {
       display: grid;
       gap: 12px;
@@ -199,6 +213,10 @@
 
         <button type="submit">Submit review</button>
       </form>
+      <div class="admin-controls">
+        <button type="button" id="admin-toggle">Admin sign in</button>
+        <span id="admin-status" aria-live="polite"></span>
+      </div>
       <div id="reviews-list" aria-live="polite"></div>
     </section>
 
@@ -222,29 +240,106 @@
   <script>
     const reviewForm = document.getElementById('review-form');
     const reviewsList = document.getElementById('reviews-list');
+    const adminToggle = document.getElementById('admin-toggle');
+    const adminStatus = document.getElementById('admin-status');
+    const ADMIN_PASSWORD = 'Gay';
+    const REVIEWS_KEY = 'congee-queen-reviews';
+    const MAX_VISIBLE_REVIEWS = 3;
+    let adminMode = false;
+
+    function getReviews() {
+      try {
+        const savedReviews = JSON.parse(localStorage.getItem(REVIEWS_KEY) || '[]');
+        return Array.isArray(savedReviews) ? savedReviews : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveReviews(reviews) {
+      localStorage.setItem(REVIEWS_KEY, JSON.stringify(reviews));
+    }
+
+    function renderReviews() {
+      const reviews = getReviews();
+      reviewsList.replaceChildren();
+
+      reviews.slice(0, MAX_VISIBLE_REVIEWS).forEach(function (review) {
+        const card = document.createElement('article');
+        card.className = 'review-card';
+
+        const heading = document.createElement('h3');
+        heading.textContent = review.name;
+        const score = document.createElement('p');
+        score.className = 'review-stars';
+        score.setAttribute('aria-label', review.rating + ' out of 5 stars');
+        score.textContent = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating) + ' (' + review.rating + '/5)';
+        const comment = document.createElement('p');
+        comment.textContent = review.text;
+        card.append(heading, score, comment);
+
+        if (adminMode) {
+          const deleteButton = document.createElement('button');
+          deleteButton.type = 'button';
+          deleteButton.className = 'delete-review';
+          deleteButton.textContent = 'Delete review';
+          deleteButton.addEventListener('click', function () {
+            saveReviews(getReviews().filter(function (savedReview) {
+              return savedReview.id !== review.id;
+            }));
+            renderReviews();
+          });
+          card.append(deleteButton);
+        }
+
+        reviewsList.append(card);
+      });
+
+      if (reviews.length > MAX_VISIBLE_REVIEWS) {
+        const note = document.createElement('p');
+        note.textContent = 'Showing the 3 newest reviews.';
+        reviewsList.append(note);
+      }
+    }
+
+    adminToggle.addEventListener('click', function () {
+      if (adminMode) {
+        adminMode = false;
+        adminStatus.textContent = ' Admin mode off.';
+        adminToggle.textContent = 'Admin sign in';
+        renderReviews();
+        return;
+      }
+
+      if (window.prompt('Enter the admin password:') === ADMIN_PASSWORD) {
+        adminMode = true;
+        adminStatus.textContent = ' Admin mode on.';
+        adminToggle.textContent = 'Sign out';
+        renderReviews();
+      } else {
+        adminStatus.textContent = ' Incorrect password.';
+      }
+    });
 
     reviewForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
       const name = document.getElementById('reviewer-name').value.trim();
       const rating = Number(document.getElementById('review-rating').value);
-      const review = document.getElementById('review-text').value.trim();
-      const card = document.createElement('article');
-      card.className = 'review-card';
-
-      const heading = document.createElement('h3');
-      heading.textContent = name;
-      const score = document.createElement('p');
-      score.className = 'review-stars';
-      score.setAttribute('aria-label', rating + ' out of 5 stars');
-      score.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating) + ' (' + rating + '/5)';
-      const comment = document.createElement('p');
-      comment.textContent = review;
-
-      card.append(heading, score, comment);
-      reviewsList.prepend(card);
+      const text = document.getElementById('review-text').value.trim();
+      const reviews = getReviews();
+      reviews.unshift({
+        id: Date.now() + '-' + Math.random().toString(36).slice(2),
+        name: name,
+        rating: rating,
+        text: text
+      });
+      saveReviews(reviews);
+      renderReviews();
       reviewForm.reset();
     });
+
+    renderReviews();
   </script>
 </body>
 </html>
