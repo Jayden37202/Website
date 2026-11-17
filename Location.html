@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Congee Queen | Locations</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #956f4b;
+      color: #f6f0e8;
+      font-family: Arial, sans-serif;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 16px;
+      background: #30251e;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      background: #604633;
+      color: white;
+      font: inherit;
+      text-decoration: none;
+    }
+
+    .tab-btn:hover, .tab-btn.active { background: #967044; }
+
+    main {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 24px;
+    }
+
+    .location-section {
+      padding: 24px;
+      border: 1px solid #c1a77e;
+      border-radius: 10px;
+      background: #422e20;
+    }
+
+    h1 { margin-top: 0; }
+
+    .map-frame {
+      display: block;
+      width: 100%;
+      height: min(65vh, 650px);
+      min-height: 350px;
+      margin: 20px 0;
+      border: 0;
+      border-radius: 8px;
+      background: #604633;
+    }
+
+    .maps-link {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 6px;
+      background: #967044;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .maps-link:hover { background: #b08a5b; }
+
+    @media (max-width: 600px) {
+      main { margin: 16px auto; padding: 16px; }
+      .location-section { padding: 18px; }
+      .map-frame { height: 60vh; min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="tab-buttons" aria-label="Page navigation">
+    <a class="tab-btn" href="index.html">Home Page</a>
+    <a class="tab-btn" href="page2.html">Menu</a>
+    <a class="tab-btn" href="page3.html">About Me</a>
+    <a class="tab-btn active" href="Location.html" aria-current="page">Locations</a>
+  </nav>
+
+  <main>
+    <section class="location-section" aria-labelledby="locations-title">
+      <h1 id="locations-title">Find a Congee Queen Nearby</h1>
+      <p>Explore Congee Queen locations on the map.</p>
+      <iframe
+        class="map-frame"
+        src="https://www.google.com/maps?q=Congee+Queen+near+me&amp;output=embed"
+        title="Google Maps search for nearby Congee Queen locations"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+    </section>
+  </main>
+</body>
+</html>
