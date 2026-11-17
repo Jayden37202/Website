@@ -90,16 +90,39 @@
   <main>
     <section class="location-section" aria-labelledby="locations-title">
       <h1 id="locations-title">Find a Congee Queen Nearby</h1>
-      <p>Explore Congee Queen locations on the map.</p>
+            <p id="location-status" aria-live="polite">Allow location access to find nearby Congee Queen locations.</p>
       <iframe
+        id="location-map"
         class="map-frame"
-        src="https://www.google.com/maps?q=Congee+Queen+near+me&amp;output=embed"
-        title="Google Maps search for nearby Congee Queen locations"
+        src="https://www.google.com/maps?q=&amp;output=embed"
+        title="Google Maps"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen>
       </iframe>
     </section>
-  </main>
+    </main>
+
+  <script>
+    const locationStatus = document.getElementById('location-status');
+    const locationMap = document.getElementById('location-map');
+
+    if ('geolocation' in navigator) {
+      locationStatus.textContent = 'Requesting permission to find nearby Congee Queen locations…';
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          const { latitude, longitude } = position.coords;
+          const search = encodeURIComponent('Congee Queen near ' + latitude + ',' + longitude);
+          locationMap.src = 'https://www.google.com/maps?q=' + search + '&output=embed';
+          locationStatus.textContent = 'Showing Congee Queen locations near you.';
+        },
+        function () {
+          locationStatus.textContent = 'Location access was not granted.';
+        }
+      );
+    } else {
+      locationStatus.textContent = 'Location is unavailable in this browser.';
+    }
+  </script>
 </body>
 </html>
